@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const logger = require('./config/log-config');
+const { mongoose } = require('./db/db-config');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
