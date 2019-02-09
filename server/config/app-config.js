@@ -1,3 +1,5 @@
+const logger = require('./log-config');
+
 const env = process.env.NODE_ENV || 'development';
 
 if (env === 'development' || env === 'test') {
@@ -8,3 +10,4 @@ if (env === 'development' || env === 'test') {
         process.env[key] = config[key];
     });
 }
+logger.info(`server running on ${env} environment`);
