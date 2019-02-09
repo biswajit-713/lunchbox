@@ -16,8 +16,11 @@ const userController = {
 
         user.save()
             .then(user => {
-                res.status(201).send({ type: user.type, email: user.email });
-            }).catch(err => {
+                return user.generateAuthToken();
+            }).then(token => {
+                res.status(201).header('x-auth', token).send({id: user._id, email: user.email, type: user.type});
+            })
+            .catch(err => {
                 res.status(400).send(err);
             })
     }
