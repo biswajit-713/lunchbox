@@ -16,5 +16,6 @@ router.post('/user', [
     check('password').matches(/[a-z]/),
     check('password').matches(/[0-9]/),
 ], UserController.CreateUser);
+router.post('/user/login', UserController.LoginUser);
 
 module.exports = router;

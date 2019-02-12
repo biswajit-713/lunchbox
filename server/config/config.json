@@ -6,7 +6,7 @@
     },
     "development": {
         "PORT": 3000,
-        "MONGODB_URI": "mongodb://localhost:27017/Lunchbox",
+        "MONGODB_URI": "mongodb://localhost:27017/Lunchbox?connectTimeoutMS=3000",
         "JWT_SECRET": "d%Bn6IVxoXYoj*ysuBvN"
     }
 }

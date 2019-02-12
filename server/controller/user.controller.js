@@ -28,6 +28,16 @@ const userController = {
                 logger.error(`unable to create user due to ${JSON.stringify(err)}`);
                 res.status(400).send(err);
             })
+    },
+    LoginUser: (req, res) => {
+        let userCredentials = _.pick(req.body, ['email', 'password', 'type']);
+        return User.findByCredential(userCredentials)
+            .then(token => {
+                logger.info(`${userCredentials.email} authenticated successfully. returning the token`)
+                return res.status(200).header('x-auth', token).send();
+            }).catch(err => {
+                return res.status(err.statusCode).send({error:err.message});
+            });
     }
 };
 
