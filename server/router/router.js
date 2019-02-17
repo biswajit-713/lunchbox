@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const { check } = require('express-validator/check');
+const { authenticateRequest } = require('./../middleware/authentication');
 
 const UserController = require('./../controller/user.controller');
 const MealController = require('./../controller/meal.controller');
@@ -17,5 +18,7 @@ router.post('/user', [
     check('password').matches(/[0-9]/),
 ], UserController.CreateUser);
 router.post('/user/login', UserController.LoginUser);
+
+router.post('/food/meal', authenticateRequest, MealController.CreateMeal);
 
 module.exports = router;

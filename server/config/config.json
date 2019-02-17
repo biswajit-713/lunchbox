@@ -7,6 +7,11 @@
     "development": {
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/Lunchbox?connectTimeoutMS=3000",
-        "JWT_SECRET": "d%Bn6IVxoXYoj*ysuBvN"
+        "JWT_SECRET": "d%Bn6IVxoXYoj*ysuBvN",
+        "facebook": {
+            "app_id": "599776047150153",
+            "app_secret": "4903758b60e3f1023e8babc08c107f14",
+            "callback": "http://localhost:3000/auth/facebook/callback"
+        }
     }
 }
